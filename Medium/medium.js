@@ -3,7 +3,6 @@ Write a function that will allow you to calculate how many slices of pizza (x) e
 */
 
 
-
 function pizzaSlices(totalSlices, people){
     const slicesPerPerson = totalSlices / people;
     return `Each person gets ${slicesPerPerson.toFixed(2)} slices of pizza; from our ${totalSlices}-slice pizza`;
