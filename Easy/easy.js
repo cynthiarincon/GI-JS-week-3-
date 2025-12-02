@@ -6,3 +6,18 @@ Write a function that will take as an input the name of an exercise and console 
  Write one function that can dynamically print the value of the exercise for that day, and it must be closure.
  */
 
+
+function createExercise(){
+
+    function exerciseName(name) {
+    return `Today's exercise: ${name}`;
+}
+    return exerciseName;
+}
+
+const exercise = createExercise();
+console.log(exercise("Running"));
+console.log(exercise("Swimming"));
+console.log(exercise("Dancing"));
+console.log(exercise("Fencing"));
+

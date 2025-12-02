@@ -9,3 +9,73 @@ Give the Programmer an 'offerNewTask' method that console logs one thing if the 
 Give the Programmer 'learnLanguage' and 'listLanguages' methods that add new languages to the programmer and list off all languages the programmer knows.
 Test it out - can you create different programmers and run all the methods on them? Does each programmer maintain their own properties properly and independently of the other programmers? Bonus - ES6 Syntax: Use ES6 Syntax in your answer. Feel free to add new methods or properties to incorporate the syntax.
 */
+
+
+class Person {
+  constructor(name, job, age) {
+    this.name = name;
+    this.job = job;
+    this.age = age;
+  }
+
+  exercise() {
+    console.log("Running is fun! - said no one ever");
+  }
+
+  fetchJob() {
+    console.log(`${this.name} is a ${this.job}`);
+  }
+}
+
+class Programmer extends Person {
+  constructor(name, job, age, languages) {
+    super(name, job, age);
+    this.languages = languages;
+    this.busy = true;
+  }
+
+  completeTask() {
+    this.busy = false;
+  }
+
+  acceptNewTask() {
+    this.busy = true;
+  }
+
+  offerNewTask() {
+    if (this.busy) {
+      console.log(`${this.name} can't accept any new tasks right now.`);
+    } else {
+      console.log(`${this.name} would love to take on a new responsibility.`);
+    }
+  }
+
+  learnLanguage(language) {
+    this.languages.push(language);
+  }
+
+  listLanguages() {
+    return this.languages;
+  }
+}
+
+const person1 = new Person("Harold", "Backend Engineer", 20);
+const c1 = new Programmer("Liana", "DevOps", 35, ["HTML", "C#", "LUA"]);
+const c2 = new Programmer("Edwin", "janitor", 55, ["HTML", "SASS", "Ruby"]);
+const c3 = new Programmer("Manny", "SysOps", 31, ["HTML", "CSS", "JS", "R"]);
+
+c1.learnLanguage("CSS");
+c2.learnLanguage("C++");
+c3.learnLanguage("JAVA");
+
+console.log(c1.listLanguages());
+console.log(c2.listLanguages());
+console.log(c3.listLanguages());
+
+console.log(person1);
+console.log(c1);
+console.log(c2);
+console.log(c3);
+
+person1.exercise();
+person1.fetchJob();
